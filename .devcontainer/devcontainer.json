@@ -27,6 +27,8 @@
 					"jawandarajbir.react-vscode-extension-pack",
 					// VSCode React Refactor
 					"planbcoding.vscode-react-refactor",
+					// Material-UI Snippets
+					"vscodeshift.material-ui-snippets",
 					// ESLint
 					"dbaeumer.vscode-eslint",
 					// GitLens — Git supercharged
