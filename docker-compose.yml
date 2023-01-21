@@ -1,0 +1,10 @@
+version: '3'
+services:
+  react-hook-form-demo:
+    container_name: react-hook-form-demo
+    image: node:18
+    tty: true
+    volumes:
+      - .:/home/node/app
+    ports:
+      - "5173:5173"
