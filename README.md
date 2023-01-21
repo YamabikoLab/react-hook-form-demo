@@ -110,9 +110,25 @@ client/index.html
 react routerとの統合  
 https://mui.com/material-ui/guides/routing/
 
+# React Select
+https://react-select.com/home
+
+```bash
+npm i --save react-select
+```
+# Yup
+https://github.com/jquense/yup#schema-basics
+
+```
+npm install @hookform/resolvers yup
+```
+
 # React Hook Form
 https://react-hook-form.com/
 
 ```bash
 npm install react-hook-form
+npm install -D @hookform/devtools
 ```
+
+codesandboxからcssをindex.cssにコピー
