@@ -99,7 +99,16 @@ https://mui.com/
 
 ```bash
 npm install @mui/material @emotion/react @emotion/styled
+npm install @fontsource/roboto
 ```
+
+client/index.html
+```html
+<meta name="viewport" content="initial-scale=1, width=device-width" />
+```
+
+react routerとの統合  
+https://mui.com/material-ui/guides/routing/
 
 # React Hook Form
 https://react-hook-form.com/
