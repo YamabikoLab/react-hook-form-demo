@@ -9,7 +9,7 @@
 const Section = ({register, errors, field, index, remove}: SectionProps) => {
     return (
         <>
-                      <div key={field.id}>
+              <div key={field.id}>
                 <section className={"section"} key={field.id}>
                   <input
                     placeholder="name"

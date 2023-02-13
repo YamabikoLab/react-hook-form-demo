@@ -1,14 +1,12 @@
+import { useFieldArray, useFormContext } from "react-hook-form"
 import Section from "./Section"
-interface SectionListProps {
-    register: any
-    errors: any
-    fields: any[]
-    append: any
-    remove: any
-  }
 
-
-const SectionList = ({register, errors, fields, append, remove}: SectionListProps) => {
+const SectionList = () => {
+  const { register, control, formState: { errors } } = useFormContext()
+  const { fields, append, remove } = useFieldArray({
+    name: "cart",
+    control
+  });
     return (
         <>
         {fields.map((field, index) => {
