@@ -1,32 +1,40 @@
-import { useForm } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from "yup";
+import { useForm, FormProvider, useFormContext } from "react-hook-form";
+import { DevTool } from "@hookform/devtools";
+import SectionList from "./SectionList";
 
-interface IFormInputs {
-  firstName: string
-  age: number
-}
 
-const schema = yup.object({
-  firstName: yup.string().required(),
-  age: yup.number().positive().integer().required(),
-}).required();
+export type FormValues = {
+  cart: {
+    name: string;
+    price: number;
+    quantity: number;
+  }[];
+};
 
 export default function App() {
-  const { register, handleSubmit, formState: { errors } } = useForm<IFormInputs>({
-    resolver: yupResolver(schema)
+  const methods = useForm();
+  const {
+    control
+  } = useForm<FormValues>({
+    defaultValues: {
+      cart: [{ name: "test", quantity: 1, price: 23 }]
+    },
+    mode: "onBlur"
   });
-  const onSubmit = (data: IFormInputs) => console.log(data);
+
+  const onSubmit: any = (data: FormValues) => console.log(data);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("firstName")} />
-      <p>{errors.firstName?.message}</p>
-        
-      <input {...register("age")} />
-      <p>{errors.age?.message}</p>
+    <>
+      <div>
+      <FormProvider {...methods} > 
+        <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <SectionList />
+        </form>
+      </FormProvider>
+      </div>
       
-      <input type="submit" />
-    </form>
+      <DevTool control={control} />
+    </>
   );
 }
